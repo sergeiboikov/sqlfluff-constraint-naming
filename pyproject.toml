@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sqlfluff-constraint-naming"
+version = "0.1.0"
+description = "A SQLFluff plugin for constraint naming conventions"
+authors = [{name = "Sergey Boykov", email = "boikov.sa@yandex.ru"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pre-commit>=3.5.0",
+    "sqlfluff>=3.3.1",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/sergeiboikov/sqlfluff-constraint-naming"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["sqlfluff_constraint_naming"]
+
+[project.entry-points.sqlfluff]
+sqlfluff_constraint_naming = "sqlfluff_constraint_naming"

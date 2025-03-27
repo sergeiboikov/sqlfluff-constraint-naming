@@ -34,10 +34,11 @@ You should see the `CN01` rule listed among the available rules.
 
 ## Usage
 
-Once installed, the plugin automatically integrates with SQLFluff. Just run SQLFluff as usual:
+Once installed, the plugin automatically integrates with SQLFluff. Just run SQLFluff as usual.
+For example:
 
 ```bash
-sqlfluff lint path/to/your/sql/files
+sqlfluff lint test.sql --dialect postgres --rules CN01 -vvvv > debug.log
 ```
 
 ## Examples
