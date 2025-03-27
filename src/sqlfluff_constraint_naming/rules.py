@@ -1,9 +1,20 @@
 """Rules for enforcing constraint naming conventions."""
 
-from typing import Optional
+from typing import Optional, List, Type
 
 from sqlfluff.core.rules import BaseRule, LintResult, RuleContext
 from sqlfluff.core.rules.crawlers import SegmentSeekerCrawler
+from sqlfluff.core.plugin import hookimpl
+
+
+@hookimpl
+def get_rules() -> List[Type[BaseRule]]:
+    """Get plugin rules.
+
+    Returns:
+        A list of rule classes to be registered with SQLFluff.
+    """
+    return [Rule_CRCN01]
 
 
 class Rule_CRCN01(BaseRule):
@@ -71,8 +82,7 @@ class Rule_CRCN01(BaseRule):
                     break
                 current_segment = current_segment.get_next()
 
-                if (current_segment.is_type("keyword") and
-                        current_segment.raw.upper() in self._PREFIX_MAPPINGS):
+                if (current_segment.is_type("keyword") and current_segment.raw.upper() in self._PREFIX_MAPPINGS):
                     constraint_type = current_segment.raw.upper()
                     break
                 elif current_segment.is_type("foreign_key_reference"):
