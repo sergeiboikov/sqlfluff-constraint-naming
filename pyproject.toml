@@ -1,0 +1,13 @@
+[project]
+name = "sqlfluff-constraint-naming"
+version = "0.1.0"
+description = "A SQLFluff plugin for constraint naming conventions"
+authors = [
+    "Sergey Boykov <boikov.sa@yandex.ru>"
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pre-commit>=4.2.0",
+]
